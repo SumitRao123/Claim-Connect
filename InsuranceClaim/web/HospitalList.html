@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/HospitalList.css">
+    <link rel="icon" href="../src/imges/长.png" style="width: 30px;">
+</head>
+
+<body>
+    <div id="roomui">
+        <div id="roomnav">
+            <div id="left">
+                <!-- <img src="/src/imges/7.png" alt=""> -->
+                <h2>Bhopal Medi - Center</h2>
+            </div>
+            <div id="mid">
+                <input type="search" placeholder="find hotel / lounge and many more">
+                <i class="ri-search-line"></i>
+            </div>
+            <div id="right">
+                <a href=""><i class="ri-home-fill"></i></a>
+                <a href=""><i class="ri-bookmark-3-fill"></i></a>
+                <a href=""><i class="ri-map-pin-fill"></i></a>
+                <!-- <button><i class="ri-login-box-fill"></i>
+                    <h6>
+                        Login/Signup
+                    </h6>
+                    <div class="dot"></div>
+                </button> -->
+            </div>
+        </div>
+        <div id="secondarynav">
+            <div id="left" class="gridleft">
+                <h3>Room name</h3>
+            </div>
+            <div id="mid" class="gridmid">
+                    <h3>Location</h3>
+                    <h3>Insurance Tags</h3>
+            </div>
+            <div id="right" class="gridright">
+                <h3 class="status">Action</h3>
+                <!-- <button>
+                    <i class="ri-calendar-2-line"></i>
+                    <h6>Schedule</h6>
+                    <div class="dot"></div>
+                </button> -->
+            </div>
+            <!-- <div class="calendar">
+                <div class="calendar-header">
+                    <span class="month-picker" id="month-picker">February</span>
+                    <div class="year-picker">
+                        <span class="year-change" id="prev-year">
+                            <pre></pre>
+                        </span>
+                        <span id="year">2021</span>
+                        <span class="year-change" id="next-year">
+                            <pre>></pre>
+                        </span>
+                    </div>
+                </div>
+                <div class="calendar-body">
+                    <div class="calendar-week-day">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="calendar-days"></div>
+                </div>
+                <div class="calendar-footer">
+                    <div class="toggle">
+                        <div class="dark-mode-switch">
+                            <div class="dark-mode-switch-ident"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="month-list"></div>
+            </div> -->
+        </div>
+
+        <div id="roomtable">
+            <div class="roomrows">
+                <div class="roomleft gridleft">
+                    <img src="https://images.jdmagicbox.com/comp/bhopal/c3/0755px755.x755.150704210015.a4c3/catalogue/dr-vidyanand-tripathi-bansal-hospital--shahpura-arera-colony-bhopal-nephrologists-a98je.jpg?temp=1" alt="">
+                    <div class="roomdets">
+                        <span>#CashLess</span>
+                        <h4>Bansal Hospital Bhopal</h4>
+                    </div>
+                </div>
+                <div class="roommid gridmid">
+                    <p>Chunna Bhatti Road</p>
+                    <div class="tags">
+                        <div class="tag tag1">
+                            <p>ICICI</p>
+                        </div>
+                        <div class="tag tag2">
+                            <p>SBI Gen.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="roomright gridright">
+                    <div class="action">
+                        <!-- <p class="booked">Booked</p>
+                        <h4>Feb 26th - 28th</h4> -->
+                        <i class="ri-chat-4-line"></i>
+                        <h5>Send Message</h5>
+                    </div>
+                    <div class="more">
+                        <!-- <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div> -->
+                        <i class="ri-phone-line"></i>
+                        <h5>Call</h5>
+                    </div>
+                    <!-- <button>
+                        <i class="ri-calendar-2-line"></i>
+                        Check Schedule
+                    </button> -->
+                </div>
+            </div>
+            <div class="roomrows">
+                <div class="roomleft gridleft">
+                    <img src="data:image/jpeg;base64,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" alt="">
+                    <div class="roomdets">
+                        <span>#CashLess</span>
+                        <h4>Trinity Multispeciality Hospital</h4>
+                    </div>
+                </div>
+                <div class="roommid gridmid">
+                    <p>Silver Crest Colony</p>
+                    <div class="tags">
+                        <div class="tag tag2">
+                            <p>SBI Gen.</p>
+                        </div>
+                        <div class="tag tag4">
+                            <p>Aditya Birla</p>
+                        </div>
+                        <div class="tag tag3">
+                            <p>Star Health</p>
+                        </div>
+                        <div class="tag tag5">
+                            <p>MAX Bupa</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="roomright gridright">
+                    <div class="action">
+                        <i class="ri-chat-4-line"></i>
+                        <h5>Send Message</h5>
+                    </div>
+                    <div class="more">
+                        <!-- <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div> -->
+                        <i class="ri-phone-line"></i>
+                        <h5>Call</h5>
+                    </div>
+                    <!-- <button>
+                        <i class="ri-calendar-2-line"></i>
+                        Check Schedule
+                    </button> -->
+                </div>
+            </div>
+            <div class="roomrows">
+                <div class="roomleft gridleft">
+                    <img src="https://images.jdmagicbox.com/comp/jalandhar/s9/0181px181.x181.190408104138.l3s9/catalogue/aggarwal-liver-and-gut-superspeciality-hospital-jalandhar-jalandhar-hospitals-0sdpacmglg.jpg?clr=660000&temp=1" alt="">
+                    <div class="roomdets">
+                        <span>#Cash+Less</span>
+                        <h4>Aggarwal Hospital</h4>
+                    </div>
+                </div>
+                <div class="roommid gridmid">
+                    <p>Arera Colony</p>
+                    <div class="tags">
+                        <div class="tag tag1">
+                            <p>SBI Gen.</p>
+                        </div>
+                        <div class="tag tag3">
+                            <p>Star Health</p>
+                        </div>
+                        <div class="tag tag4">
+                            <p>Aditya Birla</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="roomright gridright">
+                    <div class="action">
+                        <!-- <p class="status">Available</p> -->
+                        <i class="ri-chat-4-line"></i>
+                        <h5>Send Message</h5>
+                    </div>
+                    <div class="more">
+                        <!-- <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div> -->
+                        <i class="ri-phone-line"></i>
+                        <h5>Call</h5>
+                    </div>
+                    <!-- <button>
+                        <i class="ri-calendar-2-line"></i>
+                        Check Schedule
+                    </button> -->
+                </div>
+            </div>
+            <div class="roomrows">
+                <div class="roomleft gridleft">
+                    <img src="https://www.vaidam.com/sites/default/files/hospitals/2nd-min_0.jpg" alt="">
+                    <div class="roomdets">
+                        <span>#OnlyCash</span>
+                        <h4>Sunshine Hospital</h4>
+                    </div>
+                </div>
+                <div class="roommid gridmid">
+                    <p>Jyoti Parisar</p>
+                    <div class="tags">
+                        <div class="tag tag2">
+                            <p>SBI Gen.</p>
+                        </div>
+                        <div class="tag tag4">
+                            <p>Aditya Birla</p>
+                        </div>
+                        <div class="tag tag5">
+                            <p>MAX Bupa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="roomright gridright">
+                    <div class="action">
+                        <i class="ri-chat-4-line"></i>
+                        <h5>Send Message</h5>
+                    </div>
+                    <div class="more">
+                        <!-- <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div> -->
+                        <i class="ri-phone-line"></i>
+                        <h5>Call</h5>
+                    </div>
+
+                </div>
+            </div>
+            <div class="roomrows">
+                <div class="roomleft gridleft">
+                    <img src="https://images1-fabric.practo.com/gsm-hospital-bhopal-1450334549-567259559fc41.JPG" alt="">
+                    <div class="roomdets">
+                        <span>#CashLess</span>
+                        <h4>G.S.M. Hospital</h4>
+                    </div>
+                </div>
+                <div class="roommid gridmid">
+                    <p>Old MLA Quarters</p>
+                    <div class="tags">
+                        <div class="tag tag1">
+                            <p>SBI Gen.</p>
+                        </div>
+                        <div class="tag tag2">
+                            <p>SBI Gen.</p>
+                        </div>
+                        <div class="tag tag4">
+                            <p>Aditya Birla</p>
+                        </div>
+                        <div class="tag tag3">
+                            <p>Star Health</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="roomright gridright">
+                    <div class="action">
+                        <i class="ri-chat-4-line"></i>
+                        <h5>Send Message</h5>
+                    </div>
+                    <div class="more">
+                        <!-- <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div> -->
+                        <i class="ri-phone-line"></i>
+                        <h5>Call</h5>
+                    </div>
+
+                </div>
+            <!--</div>-->
+        </div>
+
+        <h2>Showing 5 out of 5 results</h2>
+    </div>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"
+        integrity="sha512-Mf/xUqfWvDIr+1B6zfnIDIiG7XHzyP/guXUWgV6PgaQoIFeXkJQR5XWh9fqAiCiRCpemabt3naV4jhDWVnuYDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <!--<script src="../javascripts/room.js"></script>-->
+</body>
+
+</html>

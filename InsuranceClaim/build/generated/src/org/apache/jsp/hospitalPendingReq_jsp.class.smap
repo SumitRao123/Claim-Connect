@@ -1,0 +1,20 @@
+SMAP
+hospitalPendingReq_jsp.java
+JSP
+*S JSP
+*F
++ 0 hospitalPendingReq.jsp
+hospitalPendingReq.jsp
+*L
+5,61:46
+66,29:108
+94,214:137
+308:351,3
+309,10:354
+319,3:364,3
+322,9:373
+331,2:382,3
+333,5:388
+338:393,3
+339,20:396
+*E
